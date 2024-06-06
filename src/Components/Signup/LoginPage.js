@@ -27,9 +27,12 @@ const LoginPage = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
     setUsers([...users,{ email: userCredentials.email, password: userCredentials.password }]);
+    setLoginType("login")
+    setUserCredentials({})
   };
 
   function shallowEqualityCheck(obj1, obj2) {
+    console.log(obj1,obj2)
     const keys1 = Object.keys(obj1);
     const keys2 = Object.keys(obj2);
     if (keys1.length !== keys2.length) {
@@ -46,6 +49,7 @@ const LoginPage = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault();
+    console.log(users,userCredentials)
     const authUser = users.some((item) => shallowEqualityCheck(item, userCredentials))
     console.log(authUser,users,userCredentials)
     if (authUser) {
@@ -90,7 +94,7 @@ const LoginPage = () => {
                       type="text"
                       autoComplete="name"
                       required
-                      className="block w-full rounded-md border-0 py-3 bg-transparent text-gray-900 shadow-sm ring-1 ring-inset ring-indigo-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      className="w-full"
                     />
                   </div>
                 </div>
@@ -112,6 +116,7 @@ const LoginPage = () => {
                   type="email"
                   autoComplete="email"
                   required
+                  value={userCredentials.email??""}
                   className="w-full"
                 />
               </div>
@@ -134,6 +139,7 @@ const LoginPage = () => {
                   type={passwordVisibility ? "text" : "password"}
                   autoComplete="current-password"
                   required
+                  value={userCredentials.password??""}
                   className="w-full"
                 />
                 <i

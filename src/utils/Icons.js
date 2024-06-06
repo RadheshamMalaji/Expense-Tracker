@@ -4,10 +4,7 @@ export const categories = <i class="fa fa-tag"></i>
 export const accounts = <i className="fa fa-wallet"></i>
 export const settings = <i class="fa fa-cog"></i>
 export const logout = <i class="fa fa-sign-out"></i>
-export const trend = <i
-class=
-"fi fi-tr-money-bill-wave-alt"
-></i>
+export const trend = <i class="fi fi-tr-money-bill-wave-alt"></i>
 export const expenses = <i class="fa fa-exchange"></i>
 export const money =<i class='fas fa-money-bill'></i>
 export const freelance = <i class="fa fa-globe"></i>

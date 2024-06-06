@@ -15,7 +15,7 @@ console.log(expenses,incomes)
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",
-    date: "",
+    date: moment(new Date()).format("DD/MM/YYYY"),
     category: "",
     description: "",
   });
@@ -33,7 +33,7 @@ console.log(expenses,incomes)
     setInputState({
       title: "",
       amount: "",
-      date: "",
+      date: moment(new Date()).format("DD/MM/YYYY"),
       category: "",
       description: "",
     });
@@ -44,14 +44,13 @@ console.log(expenses,incomes)
       <TextField required id="outlined-basic" label="Expense Title" variant="filled" value={title} name={"title"}
         onChange={handleInput("title")} />
 
-      <TextField required label="Expense Amount" variant="filled" value={amount} name={"title"}
+      <TextField required type="number" label="Expense Amount" variant="filled" value={amount} name={"title"}
         onChange={handleInput("amount")} />
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DatePicker
              required
-             label="Select Date"
              onChange={(newValue) => {
-            setInputState({ ...inputState, date:moment(newValue.$d).format("DD/MM/YYYY") });
+            setInputState({ ...inputState, date:moment(newValue?.$d).format("DD/MM/YYYY") });
           }}
         />
         </LocalizationProvider>

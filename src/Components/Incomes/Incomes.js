@@ -7,7 +7,7 @@ import { useSelector} from "react-redux";
 
 const Incomes = () => {
   const {incomes,totalIncome} = useSelector((state) => state?.users)
-
+console.log(incomes)
   return (
     <IncomesStyled>
       <InnerLayout>

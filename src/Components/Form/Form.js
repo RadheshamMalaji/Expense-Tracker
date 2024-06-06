@@ -19,12 +19,12 @@ const Form = () => {
     _id:uuidv4(),
     title: "",
     amount: "",
-    date:dayjs(new Date()),
+    date:moment(new Date()).format("DD/MM/YYYY"),
     category: "",
     description: "",
   });
 
-  const { title, amount, description } = inputState;
+  const { title, amount, description,category } = inputState;
 
   const handleInput = (name) => (e) => {
     setInputState({ ...inputState, [name]: e.target.value });
@@ -38,7 +38,7 @@ const Form = () => {
       _id:uuidv4(),
       title: "",
       amount: "",
-      date:dayjs(new Date()) ,
+      date:moment(new Date()).format("DD/MM/YYYY") ,
       category: "",
       description: "",
     });
@@ -47,10 +47,10 @@ const Form = () => {
   return (
     <FormStyled onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
-      <TextField label="Salary Title" variant="filled" value={title} name={"title"}
+      <TextField required label="Salary Title" variant="filled" value={title} name={"title"}
         onChange={handleInput("title")} />
 
-      <TextField type="number" label="Salary Amount" variant="filled" value={amount} name={"amount"}
+      <TextField type="number" required label="Salary Amount" variant="filled" value={amount} name={"amount"}
         onChange={handleInput("amount")} />
 
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -68,9 +68,13 @@ const Form = () => {
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-standard-label">Select Category</InputLabel>
         <Select
+        required
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
           label="Select Category"
+          name="category"
+          value={category}
+          onChange={handleInput("category")}
         >
           <MenuItem value="">
             <em>None</em>
@@ -86,7 +90,7 @@ const Form = () => {
         </Select>
       </FormControl>
     
-      <Textarea name="description" minRows={4} placeholder="Add A Reference" variant="outlined" value={description} onChange={handleInput("description")} />     
+      <Textarea required name="description" minRows={4} placeholder="Add A Reference" variant="outlined" value={description} onChange={handleInput("description")} />     
       <Button variant="outlined" type="submit" >Add Income</Button>
     </FormStyled>
   );
