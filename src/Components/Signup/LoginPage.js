@@ -9,7 +9,7 @@ const LoginPage = () => {
   const [loginType, setLoginType] = useState("login");
   const [userCredentials, setUserCredentials] = useState({});
   const [error, setError] = useState("");
-  const [users, setUsers] = useState([{email: "malajiradhesham@gmail.com", password: "Radhe@123" }])
+  const [users, setUsers] = useState([{email: "user@gmail.com", password: "user@123" }])
   
   const togglePasswordVisibility = () => {
     setPasswordVisibility(!passwordVisibility);
