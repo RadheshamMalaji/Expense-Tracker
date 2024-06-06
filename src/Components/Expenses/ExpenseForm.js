@@ -20,7 +20,7 @@ console.log(expenses,incomes)
     description: "",
   });
 
-  const { title, amount, date, 
+  const { title, amount,
     category, description } = inputState;
 
   const handleInput = (name) => (e) => {
