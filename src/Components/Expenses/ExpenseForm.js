@@ -18,6 +18,7 @@ console.log(expenses,incomes)
     date: moment(new Date()).format("DD/MM/YYYY"),
     category: "",
     description: "",
+    type:"expense"
   });
 
   const { title, amount,
@@ -36,6 +37,7 @@ console.log(expenses,incomes)
       date: moment(new Date()).format("DD/MM/YYYY"),
       category: "",
       description: "",
+      type:"expense"
     });
   };
 
