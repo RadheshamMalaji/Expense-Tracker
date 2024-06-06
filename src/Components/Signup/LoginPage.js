@@ -32,7 +32,6 @@ const LoginPage = () => {
   };
 
   function shallowEqualityCheck(obj1, obj2) {
-    console.log(obj1,obj2)
     const keys1 = Object.keys(obj1);
     const keys2 = Object.keys(obj2);
     if (keys1.length !== keys2.length) {
@@ -49,9 +48,7 @@ const LoginPage = () => {
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    console.log(users,userCredentials)
     const authUser = users.some((item) => shallowEqualityCheck(item, userCredentials))
-    console.log(authUser,users,userCredentials)
     if (authUser) {
       dispatch(setUser({ id: 12345, email: userCredentials.email }))
     } else {

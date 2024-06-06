@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addExpense } from "../../store/usersSlice";
 import { Button, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { Textarea } from "@mui/joy";
@@ -9,9 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import moment from "moment";
 const ExpenseForm = () => {
-  const { incomes, expenses } = useSelector((state) => state?.users)
   const dispatch = useDispatch();
-console.log(expenses,incomes)
   const [inputState, setInputState] = useState({
     title: "",
     amount: "",

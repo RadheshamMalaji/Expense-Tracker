@@ -31,7 +31,6 @@ const IncomeItem = ({
   type,
 }) => {
   const categoryIcon = () => {
-    console.log("income######",category)
     switch (category) {
       case "salary":
         return money;
@@ -55,7 +54,6 @@ const IncomeItem = ({
   };
 
   const expenseCatIcon = () => {
-    console.log("######",category)
     switch (category) {
       case "education":
         return book;
@@ -77,7 +75,6 @@ const IncomeItem = ({
         return "";
     }
   };
-  console.log("category",category,type,type === "expense")
   return (
     <IncomeItemStyled indicator={indicatorColor}>
       <div className="icon">
