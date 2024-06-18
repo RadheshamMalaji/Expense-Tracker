@@ -14,8 +14,7 @@ function totalBalance(){
 
   return (
     <DashboardSytled>
-      <InnerLayout>
-        
+      <InnerLayout> 
         <div className="amount-con">
         <div className="mx-auto max-w-xs">
         <Card  className="mx-auto max-w-xs" sx={{ minWidth: 200 }}>
@@ -63,7 +62,6 @@ function totalBalance(){
 
         <div className="stats-con">
           <div className="flex justify-between flex-row items-center mt-2">
-            
             <PieChart
             colors={['green', 'red']}
             series={[{arcLabel:(item)=>`${item.value!=0?((100*item.value)/(totalIncome+totalExpense)).toFixed(2):0}%`,
@@ -77,8 +75,7 @@ function totalBalance(){
                }}
             />
           </div>
-           <div className="history-con">
-           
+           <div className="history-con"> 
             <h2 className="income-title">
               Min <span>Income</span>Max
             </h2>

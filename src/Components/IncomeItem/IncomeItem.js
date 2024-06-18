@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   comment,
@@ -30,6 +30,8 @@ const IncomeItem = ({
   indicatorColor,
   type,
 }) => {
+
+  const [icon,setIcon]=useState("")
   const categoryIcon = () => {
     switch (category) {
       case "salary":
@@ -75,10 +77,15 @@ const IncomeItem = ({
         return "";
     }
   };
+
+  useEffect(()=>{
+    setIcon(type==="expense"?expenseCatIcon():categoryIcon());
+  },[type,category]) 
+  
   return (
     <IncomeItemStyled indicator={indicatorColor}>
       <div className="icon">
-        {type === "expense" ? expenseCatIcon() : categoryIcon()}
+        {icon}
       </div>
       <div className="content">
         <h5>{title}</h5>
